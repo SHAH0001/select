@@ -1,6 +1,6 @@
 <template>
     <div v-if="!disabled" class="select">
-        <div @click="isOpen = !isOpen" class="select-name">
+        <div :tabindex="tabindex" @click="isOpen = !isOpen" class="select-name">
             {{ selectedItem }}
         </div>
         <transition name="fade">
@@ -54,6 +54,11 @@ export default {
             type: String,
             required: false,
             default: 'Select option'
+        },
+        tabindex: {
+            type: Number,
+            required: false,
+            default: 0,
         }
     },
     computed: {
